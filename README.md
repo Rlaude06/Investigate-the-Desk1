@@ -14,6 +14,8 @@ Vous aurez besoin des sites suivants:
 **google, instagram, yopmail et pastebin**
 
 ## Installation
+Cliquez sur Code > Download ZIP et décompressez le fichier investigate-the-desk.zip
+
 Vérifiez que **python3** est installé ainsi que les librairies **tkinter** et **requests**, si ce n'est pas le cas exécutez la commande suivante :<br>
 ```
 $ pip install tkinter
@@ -25,7 +27,7 @@ $ pip install requests
 Vous devez également avoir [Logisim](http://www.cburch.com/logisim/download.html) <br>
 
 
-Pour lancer la partie exécutez la commande suivante :<br>
+Pour lancer la partie, rendez-vous dans le dossier décompressé et ouvrez un terminal. Exécutez la commande suivante :<br>
 ```
-$ python main.py
+$ python3 main.py
 ```
