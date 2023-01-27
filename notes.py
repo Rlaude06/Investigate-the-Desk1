@@ -108,7 +108,7 @@ def send():
         timestamp_end = time.time()
         diff_min = (timestamp_end - timestamp_start) // 60
 
-        result.configure(text=response+str(diff_min)+" minutes")
+        result.configure(text=response+" "+str(diff_min)+" minutes")
     
 
 if __name__ == "__main__":
