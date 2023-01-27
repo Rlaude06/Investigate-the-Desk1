@@ -1,3 +1,4 @@
+# Liste des emplacements des zones cliquables
 positions = [
         ((981, 146), (1348, 370), "ordi"), #Ordi
         ((722, 465), (967, 603), "radio"), #Radio
@@ -11,11 +12,13 @@ positions = [
 
  ]
 
+# Renvoie les coordonnées de la souris traduites comme si elles correspondait à un écran de résolution 2560x2440
 def scale(x,y,w,h):
     x = 2560*x//w
     y = 1440*y//h
     return x,y
 
+# Vérifie si le click rentré correspond à une des zones cliquable et si oui renvoie son nom sinon renvoie False
 def check_click(x,y,w,h):
     result=False
     x, y = scale(x,y,w,h)
