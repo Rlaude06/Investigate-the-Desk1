@@ -1,38 +1,41 @@
 import os
 from tkinter import *
 from PIL import Image, ImageTk
-
 import os
+# module internes
 import radio, image_opener, notes, decode, faille, default
 from positions import check_click
 
 
-win= Tk()
+win= Tk() # Créer une fenêtre tkinter
 
-win.attributes('-fullscreen', True)
+win.attributes('-fullscreen', True) # La mettre en plein écran
 
-w, h = win.winfo_screenwidth(), win.winfo_screenheight()
+w, h = win.winfo_screenwidth(), win.winfo_screenheight() # Récupérer la résolution de l'écran
 
-
+# Renvoie les données d'une image et change sa résolution pour qu'elle corresponde à celle de l'écran 
 def get_img_widget(src):
     img = Image.open(src).resize((w, h))
     img = ImageTk.PhotoImage(image=img, master=win)
     return img
 
-
+# Dictionnaire des différents fonds
 backgrounds = {
     "black": get_img_widget("img/black.png"), 
     "default": get_img_widget("img/back3.png"),
  }
 
+# Liste des chaines de caractères contenues dans les fichiers txt0, txt1, txt2 qui correspondent aux textes d'introduction
 intro_strs = [open("txt0", encoding="utf-8").read(),open("txt1", encoding="utf-8").read(), open("txt2", encoding="utf-8").read()]
 
+# Identifiant de la page actuelle
 current_page=0
 
+# Changer le fond et le texte affiché à l'écran
 def update_image():
     global current_page
     current_page+=1
-    if current_page==3:
+    if current_page==3: # Quand arrivé sur le bureau détruire le bouton suivant ainsi que le Label qui contient le texte affiché à l'écran
         can.itemconfig(image_container,image=backgrounds["default"])  
         info_text.destroy()
         next_button.destroy()
@@ -41,22 +44,24 @@ def update_image():
 
 
 
-
+# Canvas qui contient tous les widgets de l'écran
 can = Canvas(win, highlightthickness=0)
 can.pack(fill='both', expand=1)
 
+# Fenêtre correspondant au click sur l'imprimante
 def imprimante():
     win2 = Toplevel()
     win2.title("Imprimante")
-    Label(win2, text="Il semblerai qu'un fichier contenu dans "+os.path.abspath("files/")+"\nsoit protégé par un mot de passe rendant l'impression impossible...").pack() # 6614 // 1100111010110 // 101001
+    Label(win2, text="Il semblerai qu'un fichier contenu dans "+os.path.abspath("files/")+"\nsoit protégé par un mot de passe rendant l'impression impossible...").pack()
     win2.mainloop()
 
+# Fonction gérant le click de la souris sur l'écran
 def handle_click(event):
-    if current_page!=3:
+    if current_page!=3: # Quitter la fonction si le joueur n'est pas sur le bureau
         return
-
-    x, y = event.x, event.y
-    new_win_id = check_click(x,y,w,h)
+		
+    x, y = event.x, event.y # Coordonnées du click
+    new_win_id = check_click(x,y,w,h) # Voir positions.py
 
     if not new_win_id:
         return
