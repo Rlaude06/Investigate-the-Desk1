@@ -4,6 +4,8 @@
 
 Investigate-the-Desk est un jeu développé en python s’inspirant du concept d’escape game. Le joueur jouera le rôle d’un enquêteur et devra à la fois récupérer des informations dans le jeu en cliquant sur différents objets qui feront apparaître des énigmes et des indices, et également en cherchant des informations sur le personnage fictif du jeu sur internet. 
 
+Pour plus d'information voir [Compte-Rendu](https://frequent-tang-8d2.notion.site/Compte-Rendu-10cccf449779415dac58ceb4bd9edb04)
+
 ## Les Règles ##
 
 Il est interdit de regarder le code source directement afin de trouver les solutions seuls les fichiers contenus dans files/ peuvent être consultés. <br>
