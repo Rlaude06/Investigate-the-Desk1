@@ -1,3 +1,4 @@
+# Table morse
 encode_table = {
     "A": ".-",
     "B": "-...",
@@ -41,8 +42,10 @@ encode_table = {
     " ": "SPACE",  
 }
 
+# Table inversé pour pouvoir décoder
 decode_table = {v: k for k, v in encode_table.items()}
 
+# Remplacer les caractères encodés par leur vrai valeur
 def decode(encoded):
     symbols = encoded.replace("   ", " SPACE ").split(" ")
     return "".join(decode_table[x] for x in symbols).lower()
