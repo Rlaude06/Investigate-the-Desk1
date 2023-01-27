@@ -26,7 +26,7 @@ backgrounds = {
  }
 
 # Liste des chaines de caractères contenues dans les fichiers txt0, txt1, txt2 qui correspondent aux textes d'introduction
-intro_strs = [open("txt0", encoding="utf-8").read(),open("txt1", encoding="utf-8").read(), open("txt2", encoding="utf-8").read()]
+intro_strs = [open("data/txt0", encoding="utf-8").read(),open("data/txt1", encoding="utf-8").read(), open("data/txt2", encoding="utf-8").read()]
 
 # Identifiant de la page actuelle
 current_page=0
